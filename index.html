@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>IEEE Floating Point</title>
+</head>
+<body>
+  <header>
+    <h1>IEEE Floating Point</h1>
+    <h2>convert decimal numbers to and from it's binary representation</h2>
+  </header>
+  <main>
+    <div id="operations">
+        <!-- Float Conversions -->
+        <div id="conversions-operation-float-picker" class="input-row">
+          <div class="input-container">
+            <label for="float-exp">Exponet Bits</label>
+            <input type="number" min=1 max=8 name="float-exp" value=8 id="conversions-operation-float-exp">
+          </div>
+          <div class="input-container wider-input-container">
+            <label for="float-dec">Decimal Float</label>
+            <input type="number" name="float-dec" value=1 id="conversions-operation-floats-dec">
+          </div>
+          <div class="input-container">
+            <label for="float-man">Mantissa Bits</label>
+            <input type="number" min=1 max=40 name="float-man" value=23 id="conversions-operation-float-man">
+          </div>
+        </div>
+        <!--  
+             This is based off of the IEEE conversion site below 
+             https://www.h-schmidt.net/FloatConverter/IEEE754.html
+        -->
+        <div id="conversions-operation-float-bin" class="input-row">
+        </div>
+        <div id="conversions-operation-float-output-actual" class="output-row">
+          <div class="output-container">
+            <p id="conversions-operation-float-actual">Actual value: 0</p>
+          </div>
+        </div>
+        <div id="conversions-operation-float-output-error" class="output-row">
+          <div class="output-container">
+            <p id="conversions-operation-float-error">Conversion error: 0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="helperFunctions.js"></script>
+  <script src="conversions.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

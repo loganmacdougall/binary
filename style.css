@@ -1,0 +1,255 @@
+:root {
+  --header-bg-color: #16425b;
+  --header-shadow-color: rgba(0, 0, 0, 0.3);
+  --main-bg-color: #81c3d7;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--main-bg-color);
+}
+
+header {
+  text-align: center;
+  background-color: var(--header-bg-color);
+  padding: 20px 0;
+  box-shadow: 0px 0px 5px 2px var(--header-shadow-color);
+  position: relative;
+  z-index: 3;
+}
+
+header h1 {
+  font-size: 36px;
+  margin: 5px 0;
+  color: white;
+}
+
+header h2 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: white;
+}
+
+main {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+#operations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.input-row,
+.output-row {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.output-row {
+  padding: 5px 0;
+}
+
+.input-container,
+.output-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.output-container {
+  flex-direction: row;
+  word-break: keep-all;
+}
+
+.wider-input-container {
+  width: 320px;
+}
+
+.input-container label,
+.input-container input {
+  font-size: 18px;
+}
+
+#conversions-operation input {
+  font-size: 16px;
+  width: 70%;
+  height: 1em;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+/* Custom checkboxes for binary representation */
+
+.float-bit {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.float-bit+label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.float-bit+label::before {
+  content: '';
+  background: #fff;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 2px solid #c3c3c3;
+  border-radius: 0.3em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  transition: transform 1s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.float-bit+label:hover::before {
+  transform: scale(1.1);
+}
+
+.float-bit:checked+label::before {
+  background-color: blue;
+
+}
+
+.float-sign-bit+label::before {
+  border-color: rgb(176, 0, 176);
+}
+
+.float-sign-bit:checked+label::before {
+  background-color: rgb(181, 83, 181);
+}
+
+.float-exp-bit+label::before {
+  border-color: rgb(4, 160, 4);
+}
+
+.float-exp-bit:checked+label::before {
+  background-color: rgb(101, 192, 101);
+}
+
+.float-man-bit+label::before {
+  border-color: #F00;
+}
+
+.float-man-bit:checked+label::before {
+  background-color: #F55;
+}
+
+
+
+/*
+#conversions-operation-float-bin {
+  padding: 12px 0;
+}
+
+#conversions-operation-float-bin input::after {
+  content: ' ';
+  left: 28px;
+  display: inline-block;
+  background: transparent;
+  width: 15px;
+  height: 15px;
+  outline: 3px solid black;
+  border-radius: 2px;
+}
+
+#conversions-operation-float-bin .float-sign-bit::after {
+  outline-color: purple;
+}
+
+#conversions-operation-float-bin .float-exp-bit::after {
+  outline-color: green;
+}
+
+#conversions-operation-float-bin .float-man-bit::after {
+  outline-color: red;
+}
+
+#conversions-operation-float-bin p {
+  font-size: 30px;
+  margin: 0;
+}
+*/
+
+/* ------------------------------------------- */
+
+.output-container p {
+  font-size: 16px;
+  margin: 0 5px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+  border-radius: 5px;
+  padding: 8px;
+  width: 350px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media screen and (max-width: 900px) {
+  #conversions-operation input {
+    display: inline-block;
+    width: min-content;
+  }
+
+  #conversions-operation-float-bin input::after {
+    width: 10px;
+    height: 10px;
+  }
+
+  .wider-input-container {
+    width: min-content;
+    margin: 0 auto;
+  }
+
+  .input-row,
+  .output-row {
+    display: block;
+    width: unset;
+  }
+
+  .output-container p {
+    width: 100%;
+  }
+
+  .input-container input,
+  .input-container label {
+    width: 240px;
+  }
+
+  .input-container input {
+    margin-bottom: 1em;
+  }
+}
