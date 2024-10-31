@@ -135,8 +135,8 @@ function floatToIEEE(float, numExpBits, numManBits) {
   // normalized
   } else {
 
-    //If the number is out of bounds of the exponet bits, return infinity
-    //signbit, max exponet exp (all ones), min mantissa (all zeros)
+    //If the number is out of bounds of the exponent bits, return infinity
+    //signbit, max exponent exp (all ones), min mantissa (all zeros)
     if (expNum >= Math.pow(2, numExpBits) - 1) {
       expBin = '1'.repeat(numExpBits)
       let manBin = '0'.repeat(numManBits)
